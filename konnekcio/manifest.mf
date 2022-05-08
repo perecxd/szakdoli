@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+AutoUpdate-Show-In-Client: true
+OpenIDE-Module: org.szakdoli.konnekcio
+OpenIDE-Module-Install: org/szakdoli/konnekcio/Installer.class
+OpenIDE-Module-Localizing-Bundle: org/szakdoli/konnekcio/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+
