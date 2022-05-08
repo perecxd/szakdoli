@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="xml">
+        <folder name="entities">
+            <folder name="org_szakdoli_borrow">
+                <file name="borrowBooks" url="nbres:/org/netbeans/modules/settings/resources/properties-1_0.dtd">
+                    <!--org.szakdoli.borrow.borrowBooksTopComponent-->
+                    <attr name="hint.originalPublicID" stringvalue="-//org.szakdoli.borrow//borrowBooks//EN"/>
+                </file>
+            </folder>
+        </folder>
+        <folder name="memory">
+            <folder name="org">
+                <folder name="szakdoli">
+                    <folder name="borrow">
+                        <file name="borrowBooksTopComponent">
+                            <!--org.szakdoli.borrow.borrowBooksTopComponent-->
+                            <attr name="settings.providerPath" stringvalue="xml/lookups//org_szakdoli_borrow/borrowBooks.instance"/>
+                        </file>
+                    </folder>
+                </folder>
+            </folder>
+        </folder>
+        <folder name="lookups">
+            <folder name="org_szakdoli_borrow">
+                <file name="borrowBooks.instance">
+                    <!--org.szakdoli.borrow.borrowBooksTopComponent-->
+                    <attr methodvalue="org.netbeans.api.settings.Factory.create" name="instanceCreate"/>
+                    <attr methodvalue="org.netbeans.api.settings.Factory.properties" name="settings.convertor"/>
+                    <attr name="settings.instanceClass" stringvalue="org.szakdoli.borrow.borrowBooksTopComponent"/>
+                    <attr name="settings.instanceOf" stringvalue="org.szakdoli.borrow.borrowBooksTopComponent"/>
+                    <attr boolvalue="true" name="xmlproperties.preventStoring"/>
+                </file>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="Menu">
+        <folder name="Window">
+            <file name="org-szakdoli-borrow-borrowBooksTopComponent.shadow">
+                <!--org.szakdoli.borrow.borrowBooksTopComponent-->
+                <attr name="originalFile" stringvalue="Actions/Window/org-szakdoli-borrow-borrowBooksTopComponent.instance"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Windows2">
+        <folder name="Components">
+            <file name="borrowBooksTopComponent.settings">
+                <!--org.szakdoli.borrow.borrowBooksTopComponent--><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE settings PUBLIC "-//NetBeans//DTD Session settings 1.0//EN" "http://www.netbeans.org/dtds/sessionsettings-1_0.dtd">
+<settings version="1.0">
+  <instance class="org.szakdoli.borrow.borrowBooksTopComponent"/>
+</settings>
+]]></file>
+        </folder>
+        <folder name="Modes">
+            <folder name="editor">
+                <file name="borrowBooksTopComponent.wstcref">
+                    <!--org.szakdoli.borrow.borrowBooksTopComponent--><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tc-ref PUBLIC "-//NetBeans//DTD Top Component in Mode Properties 2.0//EN" "http://www.netbeans.org/dtds/tc-ref2_0.dtd">
+<tc-ref version="2.0">
+  <tc-id id="borrowBooksTopComponent"/>
+  <state opened="false"/>
+</tc-ref>
+]]></file>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="Actions">
+        <folder name="Window">
+            <file name="org-szakdoli-borrow-borrowBooksTopComponent.instance">
+                <!--org.szakdoli.borrow.borrowBooksTopComponent-->
+                <attr methodvalue="org.openide.windows.TopComponent.openAction" name="instanceCreate"/>
+                <attr name="component" newvalue="org.szakdoli.borrow.borrowBooksTopComponent"/>
+                <attr name="preferredID" stringvalue="borrowBooksTopComponent"/>
+                <attr bundlevalue="org.szakdoli.borrow.Bundle#CTL_borrowBooksAction" name="displayName"/>
+            </file>
+        </folder>
+    </folder>
+</filesystem>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.szakdoli.dbmanager">
+    <module_version install_time="1652019757766" last="true" origin="installer" specification_version="1.0">
+        <file crc="3613670361" name="config/Modules/org-szakdoli-dbmanager.xml"/>
+        <file crc="4292147143" name="modules/ext/AbsoluteLayout.jar"/>
+        <file crc="604734536" name="modules/ext/HikariCP-5.0.1.jar"/>
+        <file crc="419013816" name="modules/ext/mysql-connector-java-8.0.27.jar"/>
+        <file crc="2458519422" name="modules/ext/mysql-socket-factory-1.6.0-jar-with-dependencies.jar"/>
+        <file crc="2235748865" name="modules/ext/mysql-socket-factory-connector-j-8-1.6.0-jar-with-dependencies.jar"/>
+        <file crc="2283060544" name="modules/ext/slf4j-api-2.0.0-alpha1.jar"/>
+        <file crc="896267935" name="modules/ext/sqlite-jdbc-3.36.0.3.jar"/>
+        <file crc="2945122345" name="modules/org-szakdoli-dbmanager.jar"/>
+    </module_version>
+</module>

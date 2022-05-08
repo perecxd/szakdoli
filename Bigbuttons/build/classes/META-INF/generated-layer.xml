@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="xml">
+        <folder name="entities">
+            <folder name="org_szakdoli_bigbuttons">
+                <file name="menufele" url="nbres:/org/netbeans/modules/settings/resources/properties-1_0.dtd">
+                    <!--org.szakdoli.bigbuttons.menufeleTopComponent-->
+                    <attr name="hint.originalPublicID" stringvalue="-//org.szakdoli.bigbuttons//menufele//EN"/>
+                </file>
+            </folder>
+        </folder>
+        <folder name="memory">
+            <folder name="org">
+                <folder name="szakdoli">
+                    <folder name="bigbuttons">
+                        <file name="menufeleTopComponent">
+                            <!--org.szakdoli.bigbuttons.menufeleTopComponent-->
+                            <attr name="settings.providerPath" stringvalue="xml/lookups//org_szakdoli_bigbuttons/menufele.instance"/>
+                        </file>
+                    </folder>
+                </folder>
+            </folder>
+        </folder>
+        <folder name="lookups">
+            <folder name="org_szakdoli_bigbuttons">
+                <file name="menufele.instance">
+                    <!--org.szakdoli.bigbuttons.menufeleTopComponent-->
+                    <attr methodvalue="org.netbeans.api.settings.Factory.create" name="instanceCreate"/>
+                    <attr methodvalue="org.netbeans.api.settings.Factory.properties" name="settings.convertor"/>
+                    <attr name="settings.instanceClass" stringvalue="org.szakdoli.bigbuttons.menufeleTopComponent"/>
+                    <attr name="settings.instanceOf" stringvalue="org.szakdoli.bigbuttons.menufeleTopComponent"/>
+                    <attr boolvalue="true" name="xmlproperties.preventStoring"/>
+                </file>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="Menu">
+        <folder name="Window">
+            <file name="org-szakdoli-bigbuttons-menufeleTopComponent.shadow">
+                <!--org.szakdoli.bigbuttons.menufeleTopComponent-->
+                <attr name="originalFile" stringvalue="Actions/Window/org-szakdoli-bigbuttons-menufeleTopComponent.instance"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Windows2">
+        <folder name="Components">
+            <file name="menufeleTopComponent.settings">
+                <!--org.szakdoli.bigbuttons.menufeleTopComponent--><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE settings PUBLIC "-//NetBeans//DTD Session settings 1.0//EN" "http://www.netbeans.org/dtds/sessionsettings-1_0.dtd">
+<settings version="1.0">
+  <instance class="org.szakdoli.bigbuttons.menufeleTopComponent"/>
+</settings>
+]]></file>
+        </folder>
+        <folder name="Modes">
+            <folder name="explorer">
+                <file name="menufeleTopComponent.wstcref">
+                    <!--org.szakdoli.bigbuttons.menufeleTopComponent--><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tc-ref PUBLIC "-//NetBeans//DTD Top Component in Mode Properties 2.0//EN" "http://www.netbeans.org/dtds/tc-ref2_0.dtd">
+<tc-ref version="2.0">
+  <tc-id id="menufeleTopComponent"/>
+  <state opened="true"/>
+</tc-ref>
+]]></file>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="Actions">
+        <folder name="Window">
+            <file name="org-szakdoli-bigbuttons-menufeleTopComponent.instance">
+                <!--org.szakdoli.bigbuttons.menufeleTopComponent-->
+                <attr methodvalue="org.openide.windows.TopComponent.openAction" name="instanceCreate"/>
+                <attr name="component" newvalue="org.szakdoli.bigbuttons.menufeleTopComponent"/>
+                <attr name="preferredID" stringvalue="menufeleTopComponent"/>
+                <attr bundlevalue="org.szakdoli.bigbuttons.Bundle#CTL_menufeleAction" name="displayName"/>
+            </file>
+        </folder>
+    </folder>
+</filesystem>
