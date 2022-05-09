@@ -458,7 +458,9 @@ public final class ManagerTopComponent extends TopComponent {
              pst4.close();
              pst.close();
             conn.close();
-            updateT();
+                 updateT();
+        updateT2();
+        updateT3();
            
         } catch (ClassNotFoundException ex) {
             Exceptions.printStackTrace(ex);
@@ -517,7 +519,9 @@ public final class ManagerTopComponent extends TopComponent {
              pst4.close();
              pst.close();
             conn.close();
-           updateT2();
+             updateT();
+        updateT2();
+        updateT3();
         } catch (SQLException ex) {
             Exceptions.printStackTrace(ex);
         }
@@ -550,6 +554,9 @@ public final class ManagerTopComponent extends TopComponent {
 
             conn.close();
             pst.close();
+                 updateT();
+        updateT2();
+        updateT3();
         } catch (SQLException ex) {
             Exceptions.printStackTrace(ex);
         }
@@ -573,7 +580,9 @@ public final class ManagerTopComponent extends TopComponent {
 
              pst.close();
             conn.close();
-           updateT3();
+               updateT();
+        updateT2();
+        updateT3();
         } catch (SQLException ex) {
             Exceptions.printStackTrace(ex);
         }
@@ -595,7 +604,9 @@ public final class ManagerTopComponent extends TopComponent {
 
              pst.close();
             conn.close();
-           updateT();
+               updateT();
+        updateT2();
+        updateT3();
         } catch (SQLException ex) {
             Exceptions.printStackTrace(ex);
         }

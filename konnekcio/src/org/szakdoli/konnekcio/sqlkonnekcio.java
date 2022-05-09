@@ -33,7 +33,7 @@ public class sqlkonnekcio {
        
    
         Class.forName("org.sqlite.JDBC");  
-      Connection conn = DriverManager.getConnection("jdbc:sqlite:"+File);
+      Connection conn = DriverManager.getConnection("jdbc:sqlite::resource:/org/szakdoli/konnekcio/szakdolidb.db");
       return conn;
     
           

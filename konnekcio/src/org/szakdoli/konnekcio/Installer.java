@@ -15,14 +15,15 @@ public class Installer extends ModuleInstall {
 
 }
      public static String fajl(){
-     JFileChooser jfc = new JFileChooser();
+    /* JFileChooser jfc = new JFileChooser();
      int response = jfc.showOpenDialog(null);
             if (response == JFileChooser.APPROVE_OPTION) {
             String File = jfc.getSelectedFile().getAbsolutePath().replace('\\','/');
-            
-            return File;
+           
             }
-            return null;
+            return null;*/
+     String File= "package/szakdolidb.db";
+            return File;
  }  
     
 }

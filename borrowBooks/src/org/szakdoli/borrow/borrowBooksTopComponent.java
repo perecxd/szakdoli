@@ -48,17 +48,20 @@ public final class borrowBooksTopComponent extends TopComponent {
         initComponents();
         setName(Bundle.CTL_borrowBooksTopComponent());
         setToolTipText(Bundle.HINT_borrowBooksTopComponent());
-        updateCB();
-        updateCB2();
-        jcKonyv.setModel(mod1);
+            jcKonyv.setModel(mod1);
         jComboBox3.setModel(mod2);
         jCNev.setModel(mod3);
+        updateCB2();
+        updateCB();
+    
         
     }
     Connection conn;
     DefaultComboBoxModel mod1 = new DefaultComboBoxModel();
     DefaultComboBoxModel mod2 = new DefaultComboBoxModel();
     DefaultComboBoxModel mod3 = new DefaultComboBoxModel();
+    
+    
     public void updateCB(){
         try {
             sqlkonnekcio dbc = new sqlkonnekcio();
@@ -75,6 +78,8 @@ public final class borrowBooksTopComponent extends TopComponent {
             while (rs.next()){
                 mod1.addElement(rs.getString("cim"));
             }
+            pst.close();
+            conn.close();
         } catch (SQLException ex) {
             Exceptions.printStackTrace(ex);
         }
@@ -97,9 +102,12 @@ public final class borrowBooksTopComponent extends TopComponent {
             while (rs.next()){
                 mod3.addElement(rs.getString("nev"));
             }
+             pst.close();
+        conn.close();
         } catch (SQLException ex) {
             Exceptions.printStackTrace(ex);
         }
+       
             
    }
     /**
@@ -236,14 +244,16 @@ try{
         } 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jCNevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCNevActionPerformed
-      
-        try {
+    void getID () {
+           try {
            sqlkonnekcio dbc = new sqlkonnekcio();
             conn = dbc.connect();
             String sqlQ = "SELECT igazolvany from members where nev=?";
             PreparedStatement pst = conn.prepareStatement(sqlQ);
-            pst.setString(1, jCNev.getSelectedItem().toString());
+             if (jCNev.getSelectedItem()==null) {
+                    mod2.addElement("<válassz egy tagot>");
+                }else{
+                 pst.setString(1, jCNev.getSelectedItem().toString());
             ResultSet rs = pst.executeQuery();
             
             if (mod2.getSize()>0) {
@@ -253,14 +263,22 @@ try{
             }
             
             while (rs.next()){
+               
                 mod2.addElement(rs.getString("igazolvany"));
             }
+                 
+             }
+            
             
             conn.close();
             pst.close();
         } catch (SQLException ex) {
             Exceptions.printStackTrace(ex);
         }
+    }
+    private void jCNevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCNevActionPerformed
+      
+     getID();
        
      
     }//GEN-LAST:event_jCNevActionPerformed

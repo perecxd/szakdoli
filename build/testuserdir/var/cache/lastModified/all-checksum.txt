@@ -1,9 +1,0 @@
-C:\Program Files\NetBeans-13\netbeans\platform=1645463560000
-cluster.C:/Users/HOME/Documents/NetBeansProjects/szakdoga1/build/cluster=1652019758344
-cluster.C:/Program Files/NetBeans-13/netbeans/platform=1645463560000
-user=1652019758344
-crc=7
-locale=hu_HU
-branding=null
-java.version=16.0.1
-java.vm.version=16.0.1+9-24
