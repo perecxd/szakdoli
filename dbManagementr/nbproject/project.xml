@@ -63,6 +63,14 @@
                         <specification-version>1.0</specification-version>
                     </run-dependency>
                 </dependency>
+                <dependency>
+                    <code-name-base>org.szakdoli.mail</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <specification-version>1.0</specification-version>
+                    </run-dependency>
+                </dependency>
             </module-dependencies>
             <public-packages/>
             <class-path-extension>
@@ -78,12 +86,20 @@
                 <binary-origin>release/modules/ext/HikariCP-5.0.1.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
+                <runtime-relative-path>ext/javax.mail.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/javax.mail.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
                 <runtime-relative-path>ext/mysql-socket-factory-connector-j-8-1.6.0-jar-with-dependencies.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/mysql-socket-factory-connector-j-8-1.6.0-jar-with-dependencies.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/slf4j-api-2.0.0-alpha1.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/slf4j-api-2.0.0-alpha1.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/activation-1.1.1.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/activation-1.1.1.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/sqlite-jdbc-3.36.0.3.jar</runtime-relative-path>

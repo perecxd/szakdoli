@@ -37,6 +37,7 @@ import org.openide.util.NbBundle.Messages;
 import org.szakdoli.konnekcio.sqlkonnekcio;
 
 
+
 /**
  * Top component which displays something.
  */
@@ -47,9 +48,9 @@ import org.szakdoli.konnekcio.sqlkonnekcio;
 @TopComponent.Description(
         preferredID = "pdfolvasoTopComponent",
         //iconBase="SET/PATH/TO/ICON/HERE",
-        persistenceType = TopComponent.PERSISTENCE_ALWAYS
+        persistenceType = TopComponent.PERSISTENCE_NEVER
 )
-@TopComponent.Registration(mode = "editor", openAtStartup = true)
+@TopComponent.Registration(mode = "editor", openAtStartup = false)
 @ActionID(category = "Window", id = "org.szakdoli.olvaso.pdfolvasoTopComponent")
 @ActionReference(path = "Menu/Window" /*, position = 333 */)
 @TopComponent.OpenActionRegistration(
@@ -112,21 +113,21 @@ public final class pdfolvasoTopComponent extends TopComponent {
         setMaximumSize(new java.awt.Dimension(1024, 768));
         setLayout(new java.awt.BorderLayout());
 
-        jPanel3.setBackground(new java.awt.Color(0, 102, 0));
         jPanel3.setName(""); // NOI18N
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(102, 255, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        openoutside.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(openoutside, org.openide.util.NbBundle.getMessage(pdfolvasoTopComponent.class, "pdfolvasoTopComponent.openoutside.text")); // NOI18N
         openoutside.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 openoutsideActionPerformed(evt);
             }
         });
-        jPanel1.add(openoutside, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 720, 300, 40));
+        jPanel1.add(openoutside, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 720, 330, 40));
 
+        openinapp.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(openinapp, org.openide.util.NbBundle.getMessage(pdfolvasoTopComponent.class, "pdfolvasoTopComponent.openinapp.text")); // NOI18N
         openinapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,7 +240,7 @@ public final class pdfolvasoTopComponent extends TopComponent {
             myReader.add(jScrollPane1,BorderLayout.CENTER);
             myReader.pack();
             myReader.setPreferredSize(new Dimension(800,600));
-            myReader.setMinimumSize(new Dimension(600,800));
+            myReader.setMinimumSize(new Dimension(1000,1200));
             myReader.setLocationRelativeTo(null);
             myReader.setVisible(true);
             
@@ -313,14 +314,14 @@ public final class pdfolvasoTopComponent extends TopComponent {
         
            
             if(rs.next()){
-                JOptionPane.showMessageDialog(null, "jó volt");
+               
                 String ut = rs.getString("pdflink");
-               //  jLabel1.setText(ut);
+              
                  readerwindow();
                  openpdf(ut);
             }
             else{
-                JOptionPane.showMessageDialog(null,"elkúrtad");
+                JOptionPane.showMessageDialog(null,"Valami hiba történt!");
             }
              
              conn.close();
@@ -328,7 +329,7 @@ public final class pdfolvasoTopComponent extends TopComponent {
             Exceptions.printStackTrace(ex);
         }
         
-      //  String ut = "https://ia600404.us.archive.org/9/items/TheDaVinciCode_201308/The%20Da%20Vinci%20Code.pdf";
+     
        
     }//GEN-LAST:event_openinappActionPerformed
 

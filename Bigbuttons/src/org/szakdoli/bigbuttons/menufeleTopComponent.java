@@ -4,6 +4,9 @@
  */
 package org.szakdoli.bigbuttons;
 
+
+import java.util.Arrays;
+import javax.swing.JOptionPane;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
@@ -45,9 +48,43 @@ public final class menufeleTopComponent extends TopComponent {
         putClientProperty(TopComponent.PROP_DRAGGING_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_MAXIMIZATION_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_UNDOCKING_DISABLED, Boolean.TRUE);
+        jPanel1.setVisible(false);
 
     }
 
+    void  admin(){
+        char[] pw = new char[]{'a','d','m','i','n'};
+        String user = "admin";
+        if (Arrays.equals(jPasswordField1.getPassword(), pw)  &&jTextField1.getText().equals(user)) {
+          
+             jPanel1.setVisible(true);
+        jPanel2.setVisible(false);
+                btnKolcson.setVisible(true);
+        btnBook.setVisible(true);
+        btnTag.setVisible(true);
+        btnmanager.setVisible(true);
+          JOptionPane.showMessageDialog(null, "Sikeres bejelentkezés!");
+            jPasswordField1.setText("");
+            jTextField1.setText("");
+        }else {
+            JOptionPane.showMessageDialog(null, "A megadott adatok nem megfelelőek!");
+            jPasswordField1.setText("");
+            jTextField1.setText("");
+        }
+       
+    }
+     
+    
+    void vendeg(){
+                     jPanel1.setVisible(true);
+        jPanel2.setVisible(false);
+        btnKolcson.setVisible(false);
+        btnBook.setVisible(false);
+        btnTag.setVisible(false);
+        btnmanager.setVisible(false);
+         JOptionPane.showMessageDialog(null, "Sikeres bejelentkezés!");
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,16 +93,64 @@ public final class menufeleTopComponent extends TopComponent {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnBook = new javax.swing.JButton();
         btnKolcson = new javax.swing.JButton();
         btnmanager = new javax.swing.JButton();
         btnTag = new javax.swing.JButton();
         btnRead = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(menufeleTopComponent.class, "menufeleTopComponent.jButton1.text")); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 140, 50));
+
+        jTextField1.setText(org.openide.util.NbBundle.getMessage(menufeleTopComponent.class, "menufeleTopComponent.jTextField1.text")); // NOI18N
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 230, -1));
+
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButton2, org.openide.util.NbBundle.getMessage(menufeleTopComponent.class, "menufeleTopComponent.jButton2.text")); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 140, 50));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(menufeleTopComponent.class, "menufeleTopComponent.jLabel1.text")); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 240, 60));
+
+        jPasswordField1.setText(org.openide.util.NbBundle.getMessage(menufeleTopComponent.class, "menufeleTopComponent.jPasswordField1.text")); // NOI18N
+        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 230, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(menufeleTopComponent.class, "menufeleTopComponent.jLabel2.text")); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 130, 30));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(menufeleTopComponent.class, "menufeleTopComponent.jLabel3.text")); // NOI18N
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 130, 30));
+
+        add(jPanel2, java.awt.BorderLayout.PAGE_START);
+
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBook.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
@@ -75,7 +160,7 @@ public final class menufeleTopComponent extends TopComponent {
                 btnBookActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 210, 60));
+        jPanel1.add(btnBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 210, 60));
 
         btnKolcson.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(btnKolcson, org.openide.util.NbBundle.getMessage(menufeleTopComponent.class, "menufeleTopComponent.btnKolcson.text")); // NOI18N
@@ -84,7 +169,7 @@ public final class menufeleTopComponent extends TopComponent {
                 btnKolcsonActionPerformed(evt);
             }
         });
-        jPanel1.add(btnKolcson, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 210, 60));
+        jPanel1.add(btnKolcson, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 210, 60));
 
         btnmanager.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(btnmanager, org.openide.util.NbBundle.getMessage(menufeleTopComponent.class, "menufeleTopComponent.btnmanager.text")); // NOI18N
@@ -93,7 +178,7 @@ public final class menufeleTopComponent extends TopComponent {
                 btnmanagerActionPerformed(evt);
             }
         });
-        jPanel1.add(btnmanager, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 12, 210, 60));
+        jPanel1.add(btnmanager, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 210, 60));
 
         btnTag.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(btnTag, org.openide.util.NbBundle.getMessage(menufeleTopComponent.class, "menufeleTopComponent.btnTag.text")); // NOI18N
@@ -102,7 +187,7 @@ public final class menufeleTopComponent extends TopComponent {
                 btnTagActionPerformed(evt);
             }
         });
-        jPanel1.add(btnTag, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 210, 60));
+        jPanel1.add(btnTag, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 210, 60));
 
         btnRead.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(btnRead, org.openide.util.NbBundle.getMessage(menufeleTopComponent.class, "menufeleTopComponent.btnRead.text")); // NOI18N
@@ -111,7 +196,16 @@ public final class menufeleTopComponent extends TopComponent {
                 btnReadActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRead, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 210, 60));
+        jPanel1.add(btnRead, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 210, 60));
+
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButton3, org.openide.util.NbBundle.getMessage(menufeleTopComponent.class, "menufeleTopComponent.jButton3.text")); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 120, 30));
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -142,13 +236,36 @@ public final class menufeleTopComponent extends TopComponent {
         WindowManager.getDefault().findTopComponent("addmemberTopComponent").requestActive(); 
     }//GEN-LAST:event_btnTagActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       admin();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+      jPanel1.setVisible(false);
+      jPanel2.setVisible(true);
+      JOptionPane.showMessageDialog(null, "Kijelentkeztél!");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      vendeg();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBook;
     private javax.swing.JButton btnKolcson;
     private javax.swing.JButton btnRead;
     private javax.swing.JButton btnTag;
     private javax.swing.JButton btnmanager;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
     @Override
     public void componentOpened() {

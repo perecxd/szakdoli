@@ -63,6 +63,14 @@
                         <specification-version>1.0</specification-version>
                     </run-dependency>
                 </dependency>
+                <dependency>
+                    <code-name-base>org.szakdoli.mail</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <specification-version>1.0</specification-version>
+                    </run-dependency>
+                </dependency>
             </module-dependencies>
             <public-packages/>
             <class-path-extension>
@@ -72,6 +80,14 @@
             <class-path-extension>
                 <runtime-relative-path>ext/AbsoluteLayout.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/AbsoluteLayout.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/javax.mail.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/javax.mail.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/activation-1.1.1.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/activation-1.1.1.jar</binary-origin>
             </class-path-extension>
         </data>
     </configuration>

@@ -4,12 +4,14 @@
  */
 package org.szakdoli.addmember;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
@@ -18,6 +20,9 @@ import org.openide.util.Exceptions;
 import org.openide.windows.TopComponent;
 import org.openide.util.NbBundle.Messages;
 import org.szakdoli.konnekcio.sqlkonnekcio;
+
+
+import org.szakdoli.mail.sendmail;
 
 /**
  * Top component which displays something.
@@ -74,11 +79,12 @@ public final class addmemberTopComponent extends TopComponent {
         jLabel5 = new javax.swing.JLabel();
         btnregister = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        tfmail = new java.awt.TextField();
+        jLabel6 = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(600, 800));
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(102, 255, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tfTSZ.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -122,20 +128,28 @@ public final class addmemberTopComponent extends TopComponent {
                 btnregisterActionPerformed(evt);
             }
         });
-        jPanel1.add(btnregister, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 330, 40));
+        jPanel1.add(btnregister, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 520, 330, 40));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(addmemberTopComponent.class, "addmemberTopComponent.jLabel2.text")); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 40, -1));
 
+        tfmail.setText(org.openide.util.NbBundle.getMessage(addmemberTopComponent.class, "addmemberTopComponent.tfmail.text")); // NOI18N
+        jPanel1.add(tfmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 330, -1));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel6, org.openide.util.NbBundle.getMessage(addmemberTopComponent.class, "addmemberTopComponent.jLabel6.text")); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 200, 30));
+
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+ 
     private void btnregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregisterActionPerformed
              try {
              sqlkonnekcio dbc = new sqlkonnekcio();
             conn = dbc.connect(); //DriverManager.getConnection("jdbc:mysql://localhost:3306/szakdoli","root","Lampa123");
-             String sqlS ="INSERT INTO members(idmembers, nev, lakcim, igazolvany, telszam, szuldate) VALUES (?,?,?,?,?,?) ";
+             String sqlS ="INSERT INTO members(idmembers, nev, lakcim, igazolvany, telszam, szuldate,mail) VALUES (?,?,?,?,?,?,?) ";
              String sqlC ="SELECT max(idmembers) from members;";
             
              PreparedStatement pstC = conn.prepareStatement(sqlC);
@@ -173,12 +187,24 @@ public final class addmemberTopComponent extends TopComponent {
              pst.setString(5, telefon);
                  
              pst.setString(6, Date);
+               String to =tfmail.getText();
+                     if (to.equals("")) {
+                         JOptionPane.showMessageDialog(null, "Nem adtál meg e-mail címet!");
+                     }else{
+                
+                
+                
+                 try {
+                     sendmail.sendmail(to);
+                 } catch (MessagingException ex) {
+                     Exceptions.printStackTrace(ex);
+                 }
+                 pst.setString(7, to);
                pst.execute();
                  }
              
-                
-           
-            
+              
+               }
              
              
           
@@ -193,6 +219,12 @@ public final class addmemberTopComponent extends TopComponent {
              pstC.close();
              
              conn.close();
+             
+             //emailküldés
+             
+
+             
+             
         } catch (SQLException ex) {
                  if (ex.getErrorCode()==1062) {
                      JOptionPane.showMessageDialog(null, "EZ az igazolványszám már az adatbázisban van, kérlek ellenőrizd amit írtál!");
@@ -211,11 +243,13 @@ public final class addmemberTopComponent extends TopComponent {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private java.awt.TextField tFName;
     private java.awt.TextField tfISZ;
     private java.awt.TextField tfLC;
     private java.awt.TextField tfTSZ;
+    private java.awt.TextField tfmail;
     // End of variables declaration//GEN-END:variables
     @Override
     public void componentOpened() {

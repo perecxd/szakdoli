@@ -21,7 +21,7 @@ import org.openide.modules.OnStart;
 public class sqlkonnekcio {
    Connection conn = null;
    
-  public static String File = Installer.fajl();
+
    
 
 
@@ -33,7 +33,7 @@ public class sqlkonnekcio {
        
    
         Class.forName("org.sqlite.JDBC");  
-      Connection conn = DriverManager.getConnection("jdbc:sqlite::resource:/org/szakdoli/konnekcio/szakdolidb.db");
+      Connection conn = DriverManager.getConnection("jdbc:sqlite::resource:org/szakdoli/konnekcio/szakdolidb.db");
       return conn;
     
           

@@ -31,7 +31,7 @@ import org.szakdoli.konnekcio.sqlkonnekcio;
         iconBase = "org/szakdoli/addbook/bookicon.png",
         persistenceType = TopComponent.PERSISTENCE_ALWAYS
 )
-@TopComponent.Registration(mode = "editor", openAtStartup = true)
+@TopComponent.Registration(mode = "editor", openAtStartup = false)
 @ActionID(category = "Window", id = "org.szakdoli.addbook.addbooksTopComponent")
 @ActionReference(path = "Menu/Window" /*, position = 333 */)
 @TopComponent.OpenActionRegistration(
@@ -76,12 +76,12 @@ Connection conn = null;
         jlKiado = new javax.swing.JLabel();
         tfKiado = new java.awt.TextField();
         jlCim = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(java.awt.Color.green);
         setMaximumSize(new java.awt.Dimension(400, 600));
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(102, 255, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jlLink.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -136,6 +136,11 @@ Connection conn = null;
         jlCim.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jlCim, org.openide.util.NbBundle.getMessage(addbooksTopComponent.class, "addbooksTopComponent.jlCim.text_1")); // NOI18N
         jPanel1.add(jlCim, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/szakdoli/addbook/information-icon-6102.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(addbooksTopComponent.class, "addbooksTopComponent.jLabel1.text")); // NOI18N
+        jLabel1.setToolTipText(org.openide.util.NbBundle.getMessage(addbooksTopComponent.class, "addbooksTopComponent.jLabel1.toolTipText")); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 40, 40));
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -216,6 +221,7 @@ Connection conn = null;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFile;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbtnAddBook;
     private javax.swing.JLabel jlCim;

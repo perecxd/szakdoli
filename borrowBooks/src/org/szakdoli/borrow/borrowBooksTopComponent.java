@@ -9,6 +9,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import javax.mail.MessagingException;
 import javax.swing.DefaultComboBoxModel;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
@@ -17,6 +21,7 @@ import org.openide.util.Exceptions;
 import org.openide.windows.TopComponent;
 import org.openide.util.NbBundle.Messages;
 import org.szakdoli.konnekcio.sqlkonnekcio;
+import org.szakdoli.mail.sendmail;
 
 /**
  * Top component which displays something.
@@ -110,6 +115,7 @@ public final class borrowBooksTopComponent extends TopComponent {
        
             
    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -126,11 +132,11 @@ public final class borrowBooksTopComponent extends TopComponent {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(300, 400));
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(102, 255, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jCNev.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -168,29 +174,42 @@ public final class borrowBooksTopComponent extends TopComponent {
         org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(borrowBooksTopComponent.class, "borrowBooksTopComponent.jLabel3.text")); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/szakdoli/borrow/frissítl.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButton2, org.openide.util.NbBundle.getMessage(borrowBooksTopComponent.class, "borrowBooksTopComponent.jButton2.text")); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 40, 40));
+
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 try{
+    
         sqlkonnekcio dbc = new sqlkonnekcio();
             conn = dbc.connect();
-             String sqlS ="INSERT INTO kolcsonzes(idkolcsonzes,konyvid,nev,telszam) values (?,?,?,?) ";
+             String sqlS ="INSERT INTO kolcsonzes(idkolcsonzes,konyvid,nev,telszam,vissza,email) values (?,?,?,?,?,?) ";
              String sqlC ="SELECT max(idkolcsonzes) from kolcsonzes";
              String sql3 = "Select idkonyvek from konyvek where cim =?";
              String sqlK = "select isKolcsonozve,konyvszam from konyvek where idkonyvek =?";
              String sql4 = "update konyvek set isKolcsonozve=? where idkonyvek=?";
              String sqlI = "select igazolvany from members where nev =? ";
+             String sqlMail = "select mail from members where igazolvany =?";
              PreparedStatement pstC = conn.prepareStatement(sqlC);
              PreparedStatement pst = conn.prepareStatement(sqlS);
              PreparedStatement pst3 = conn.prepareStatement(sql3);
              PreparedStatement pst4 = conn.prepareStatement(sql4);
              PreparedStatement pstK = conn.prepareStatement(sqlK);
               PreparedStatement pstI = conn.prepareStatement(sqlI);
+                PreparedStatement pstM = conn.prepareStatement(sqlMail);
              String jcSelected = jCNev.getSelectedItem().toString();
              String jcSelected2 = jcKonyv.getSelectedItem().toString();
              pst3.setString(1, jcSelected2);
              pstI.setString(1,jcSelected);
+             
              ResultSet rsC = pstC.executeQuery();
              
              ResultSet rs3 = pst3.executeQuery();
@@ -206,6 +225,13 @@ try{
             if (rsI.next()) {
                 igazolv = rsI.getString(1);
     }
+            pstM.setString(1, igazolv);
+            ResultSet rsM = pstM.executeQuery();
+            String hova = "";
+            if (rsM.next()) {
+            hova = rsM.getString(1);
+    }
+         
              if(rsC.next()&&rs3.next()){
                 kolcsonid = rsC.getInt(1);
                 konyvid = rs3.getInt(1);
@@ -218,20 +244,36 @@ try{
               kolcsszam = rsk.getInt(1);
               konyvszam = rsk.getInt(2);
           }
+             String nev = jCNev.getSelectedItem().toString();
+             String konyv = jcKonyv.getSelectedItem().toString();
              
+             //határidő
+                   Date date = new Date();
+                      	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                        formatter.format(date);
+            Calendar c = Calendar.getInstance();
+            c.setTime(date);
+            c.add(Calendar.DATE, 30);
+            Date visszahoz = c.getTime();
+            formatter.format(visszahoz);
+            
+            
+            
             pst.setInt(1,kolcsonid+1 );
             pst.setInt(2,konyvid );
-            pst.setString(3, jCNev.getSelectedItem().toString());
+            pst.setString(3, nev);
             pst.setString(4, igazolv);
+            pst.setString(5, formatter.format(visszahoz));
+            pst.setString(6, hova);
             pst.execute();
             pst4.setInt(1, kolcsszam+1);
             pst4.setInt(2, konyvid);
             pst4.execute();
              
              
-            
+            sendmail.mailborrowed(hova, nev, konyv);
              
-        
+            pstM.close();
              pst.close();
              pstC.close();
              pst3.close();
@@ -240,6 +282,8 @@ try{
              updateCB();
              updateCB2();
         } catch (SQLException ex) {
+            Exceptions.printStackTrace(ex);
+        } catch (MessagingException ex) {
             Exceptions.printStackTrace(ex);
         } 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -283,8 +327,14 @@ try{
      
     }//GEN-LAST:event_jCNevActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       updateCB();
+       updateCB2();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jCNev;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
