@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.szakdoli.olvaso">
-    <module_version install_time="1653411099210" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1653840564413" last="true" origin="installer" specification_version="1.0">
         <file crc="3387854905" name="config/Modules/org-szakdoli-olvaso.xml"/>
         <file crc="4292147143" name="modules/ext/AbsoluteLayout.jar"/>
         <file crc="1834101653" name="modules/ext/JavaApplication1.jar"/>
@@ -11,6 +11,7 @@
         <file crc="3237267490" name="modules/ext/jai_imageio.jar"/>
         <file crc="3116384944" name="modules/ext/jbig2-imageio-3.0.0.jar"/>
         <file crc="419013816" name="modules/ext/mysql-connector-java-8.0.27.jar"/>
-        <file crc="80992708" name="modules/org-szakdoli-olvaso.jar"/>
+        <file crc="896267935" name="modules/ext/sqlite-jdbc-3.36.0.3.jar"/>
+        <file crc="660440806" name="modules/org-szakdoli-olvaso.jar"/>
     </module_version>
 </module>

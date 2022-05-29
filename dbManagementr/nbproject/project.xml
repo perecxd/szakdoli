@@ -74,28 +74,12 @@
             </module-dependencies>
             <public-packages/>
             <class-path-extension>
-                <runtime-relative-path>ext/mysql-connector-java-8.0.27.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/mysql-connector-java-8.0.27.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/AbsoluteLayout.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/AbsoluteLayout.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/HikariCP-5.0.1.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/HikariCP-5.0.1.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/javax.mail.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/javax.mail.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/mysql-socket-factory-connector-j-8-1.6.0-jar-with-dependencies.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/mysql-socket-factory-connector-j-8-1.6.0-jar-with-dependencies.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/slf4j-api-2.0.0-alpha1.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/slf4j-api-2.0.0-alpha1.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/activation-1.1.1.jar</runtime-relative-path>

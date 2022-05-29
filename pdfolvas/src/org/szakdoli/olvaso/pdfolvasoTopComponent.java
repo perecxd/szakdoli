@@ -5,9 +5,12 @@
 package org.szakdoli.olvaso;
 
 import java.awt.BorderLayout;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,6 +24,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.text.JTextComponent;
@@ -76,7 +80,7 @@ public final class pdfolvasoTopComponent extends TopComponent {
         jTable1.setModel(model);
        
         openinapp.setText("Kiválasztott könyv olvasása");
-        jButton2.setText("Megnyitás");
+        btnopenfromtext.setText("Megnyitás");
 
         updateT();
   //      updateT2();
@@ -105,9 +109,10 @@ public final class pdfolvasoTopComponent extends TopComponent {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         opennotinapp = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnopenfromtext = new javax.swing.JButton();
         txtFilePath = new java.awt.TextField();
         btnFileC = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 255, 204));
         setMaximumSize(new java.awt.Dimension(1024, 768));
@@ -180,14 +185,14 @@ public final class pdfolvasoTopComponent extends TopComponent {
         });
         jPanel1.add(opennotinapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 260, 20));
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton2, org.openide.util.NbBundle.getMessage(pdfolvasoTopComponent.class, "pdfolvasoTopComponent.jButton2.text")); // NOI18N
-        jButton2.setToolTipText(org.openide.util.NbBundle.getMessage(pdfolvasoTopComponent.class, "pdfolvasoTopComponent.jButton2.toolTipText")); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(btnopenfromtext, org.openide.util.NbBundle.getMessage(pdfolvasoTopComponent.class, "pdfolvasoTopComponent.btnopenfromtext.text")); // NOI18N
+        btnopenfromtext.setToolTipText(org.openide.util.NbBundle.getMessage(pdfolvasoTopComponent.class, "pdfolvasoTopComponent.btnopenfromtext.toolTipText")); // NOI18N
+        btnopenfromtext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnopenfromtextActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 40, 240, 20));
+        jPanel1.add(btnopenfromtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 40, 240, 20));
 
         txtFilePath.setText(org.openide.util.NbBundle.getMessage(pdfolvasoTopComponent.class, "pdfolvasoTopComponent.txtFilePath.text")); // NOI18N
         jPanel1.add(txtFilePath, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 840, -1));
@@ -200,7 +205,15 @@ public final class pdfolvasoTopComponent extends TopComponent {
         });
         jPanel1.add(btnFileC, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 10, 30, 20));
 
-        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 1180, 780));
+        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(pdfolvasoTopComponent.class, "pdfolvasoTopComponent.jButton1.text")); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 340, -1, -1));
+
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 1200, 780));
 
         add(jPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -220,9 +233,7 @@ public final class pdfolvasoTopComponent extends TopComponent {
                   control.openDocument(url);
           }else if(file.contains("Users/")){
               control.openDocument(file);
-          }
-                  
-                 
+          }        
         jScrollPane1.setViewportView(veiwerCompntpnl); 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this,"Cannot Load Pdf");
@@ -239,8 +250,8 @@ public final class pdfolvasoTopComponent extends TopComponent {
             myReader.setLayout(b1);
             myReader.add(jScrollPane1,BorderLayout.CENTER);
             myReader.pack();
-            myReader.setPreferredSize(new Dimension(800,600));
-            myReader.setMinimumSize(new Dimension(1000,1200));
+            myReader.setPreferredSize(new Dimension(1000,720));
+            myReader.setMinimumSize(new Dimension(1000,720));
             myReader.setLocationRelativeTo(null);
             myReader.setVisible(true);
             
@@ -249,7 +260,7 @@ public final class pdfolvasoTopComponent extends TopComponent {
         try {
            sqlkonnekcio dbc = new sqlkonnekcio();
             conn = dbc.connect();
-          String sql ="SELECT  cim, szerzo, kiado, kiadaseve from konyvek";
+          String sql ="SELECT  cim, szerzo, kiado, kiadaseve from konyvek order by cim ASC";
        
           PreparedStatement pst = conn.prepareStatement(sql);
          
@@ -323,7 +334,8 @@ public final class pdfolvasoTopComponent extends TopComponent {
             else{
                 JOptionPane.showMessageDialog(null,"Valami hiba történt!");
             }
-             
+             pst.close();
+             pstid.close();
              conn.close();
         } catch (SQLException ex) {
             Exceptions.printStackTrace(ex);
@@ -356,20 +368,30 @@ public final class pdfolvasoTopComponent extends TopComponent {
             sqlkonnekcio dbc = new sqlkonnekcio();
             conn = dbc.connect();
             
+           String sqlID = "Select idkonyvek from konyvek where cim =?";
             String sqlS1="SELECT pdflink FROM konyvek WHERE idkonyvek = ? ";
             PreparedStatement pst = conn.prepareStatement(sqlS1);
-       // pst.setString(1,txtFilePath.getText());
-             int row = jTable1.getSelectedRow();
-            int kival = (int)jTable1.getModel().getValueAt(row, 0);
+            PreparedStatement pstid = conn.prepareStatement(sqlID);
+     
+            int row = jTable1.getSelectedRow();
+            String kivalS = jTable1.getModel().getValueAt(row, 0).toString();
+            pstid.setString(1, kivalS);
+            ResultSet rsid = pstid.executeQuery();
+            int kival =0;
+            if (rsid.next()) {
+                kival= rsid.getInt(1);
+            }
+            
             pst.setInt(1,kival);
             ResultSet rs = pst.executeQuery();
             
-            
+        
            
             if(rs.next()){
-                JOptionPane.showMessageDialog(null, "jó volt");
+               
+              
                 String ut = rs.getString("pdflink");
-                if (ut.contains("www.")) {
+                if (ut.contains("https")) {
                      URL url = new URL(ut);
             Runtime.getRuntime().exec("rundll32 url.dll, FileProtocolHandler "+ url );
                 }else {
@@ -381,6 +403,11 @@ public final class pdfolvasoTopComponent extends TopComponent {
             else{
                 JOptionPane.showMessageDialog(null,"Nem volt jó");
             }
+          
+            
+           
+           
+              
              
              conn.close();
         } catch (SQLException ex) {
@@ -394,14 +421,14 @@ public final class pdfolvasoTopComponent extends TopComponent {
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
         updateT();
-        //  updateT2();
-        // updateCB();
 
     }//GEN-LAST:event_updatebtnActionPerformed
 
     private void btnFileCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFileCActionPerformed
         
               JFileChooser fileChooser = new JFileChooser();
+              FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF fájlok", "pdf");
+              fileChooser.setFileFilter(filter);
       int response = fileChooser.showOpenDialog(null);
      
         if (response == JFileChooser.APPROVE_OPTION) {
@@ -410,16 +437,29 @@ public final class pdfolvasoTopComponent extends TopComponent {
         }
     }//GEN-LAST:event_btnFileCActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnopenfromtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnopenfromtextActionPerformed
         String ut = txtFilePath.getText();
         readerwindow();
          openpdf(ut);  
          txtFilePath.setText("");
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnopenfromtextActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+            try {
+                Desktop.getDesktop().browse(new URI("https://hu1lib.org/s/?languages%5B%5D=english&extensions%5B%5D=pdf"));
+            } catch (URISyntaxException ex) {
+                Exceptions.printStackTrace(ex);
+            } catch (IOException ex) {
+                Exceptions.printStackTrace(ex);
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFileC;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnopenfromtext;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;

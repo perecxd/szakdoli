@@ -9,9 +9,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import org.openide.modules.OnStart;
 
 /**
  *
@@ -35,9 +32,7 @@ public class sqlkonnekcio {
         Class.forName("org.sqlite.JDBC");  
       Connection conn = DriverManager.getConnection("jdbc:sqlite::resource:org/szakdoli/konnekcio/szakdolidb.db");
       return conn;
-    
-          
-       //jdbc:sqlite:C:/Users/HOME/Documents/NetBeansProjects/szakdoga1/konnekcio/szakdolidb.db
+
         
     } catch (ClassNotFoundException ex) {
             Logger.getLogger(sqlkonnekcio.class.getName()).log(Level.SEVERE, null, ex);

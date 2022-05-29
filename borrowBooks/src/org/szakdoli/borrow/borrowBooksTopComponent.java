@@ -14,6 +14,7 @@ import java.util.Calendar;
 import java.util.Date;
 import javax.mail.MessagingException;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
@@ -33,7 +34,7 @@ import org.szakdoli.mail.sendmail;
 @TopComponent.Description(
         preferredID = "borrowBooksTopComponent",
         //iconBase="SET/PATH/TO/ICON/HERE",
-        persistenceType = TopComponent.PERSISTENCE_ALWAYS
+        persistenceType = TopComponent.PERSISTENCE_NEVER
 )
 @TopComponent.Registration(mode = "editor", openAtStartup = false)
 @ActionID(category = "Window", id = "org.szakdoli.borrow.borrowBooksTopComponent")
@@ -129,7 +130,7 @@ public final class borrowBooksTopComponent extends TopComponent {
         jcKonyv = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnBorrow = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -157,14 +158,14 @@ public final class borrowBooksTopComponent extends TopComponent {
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(borrowBooksTopComponent.class, "borrowBooksTopComponent.jLabel1.text")); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(borrowBooksTopComponent.class, "borrowBooksTopComponent.jButton1.text")); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBorrow.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(btnBorrow, org.openide.util.NbBundle.getMessage(borrowBooksTopComponent.class, "borrowBooksTopComponent.btnBorrow.text")); // NOI18N
+        btnBorrow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBorrowActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 270, 80));
+        jPanel1.add(btnBorrow, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 270, 80));
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(borrowBooksTopComponent.class, "borrowBooksTopComponent.jLabel2.text")); // NOI18N
@@ -186,7 +187,7 @@ public final class borrowBooksTopComponent extends TopComponent {
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnBorrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrowActionPerformed
 try{
     
         sqlkonnekcio dbc = new sqlkonnekcio();
@@ -270,9 +271,11 @@ try{
             pst4.setInt(2, konyvid);
             pst4.execute();
              
-             
+            if (hova.equals("nincs")||hova.equals("")) {
+                JOptionPane.showMessageDialog(null, "Sikeres kölcsönzés, értesítő e-mailt nem tudtunk küldeni! ");
+    }else{
             sendmail.mailborrowed(hova, nev, konyv);
-             
+            }
             pstM.close();
              pst.close();
              pstC.close();
@@ -286,7 +289,7 @@ try{
         } catch (MessagingException ex) {
             Exceptions.printStackTrace(ex);
         } 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnBorrowActionPerformed
 
     void getID () {
            try {
@@ -333,7 +336,7 @@ try{
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnBorrow;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jCNev;
     private javax.swing.JComboBox<String> jComboBox3;

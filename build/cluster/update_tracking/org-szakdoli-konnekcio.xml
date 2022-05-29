@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.szakdoli.konnekcio">
-    <module_version install_time="1653411097323" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1653840562682" last="true" origin="installer" specification_version="1.0">
         <file crc="3148865592" name="config/Modules/org-szakdoli-konnekcio.xml"/>
         <file crc="896267935" name="modules/ext/sqlite-jdbc-3.36.0.3.jar"/>
-        <file crc="4196713892" name="modules/org-szakdoli-konnekcio.jar"/>
+        <file crc="132065705" name="modules/org-szakdoli-konnekcio.jar"/>
     </module_version>
 </module>

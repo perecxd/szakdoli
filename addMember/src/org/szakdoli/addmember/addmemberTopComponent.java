@@ -34,7 +34,7 @@ import org.szakdoli.mail.sendmail;
 @TopComponent.Description(
         preferredID = "addmemberTopComponent",
         //iconBase="SET/PATH/TO/ICON/HERE",
-        persistenceType = TopComponent.PERSISTENCE_ALWAYS
+        persistenceType = TopComponent.PERSISTENCE_NEVER
 )
 @TopComponent.Registration(mode = "editor", openAtStartup = false)
 @ActionID(category = "Window", id = "org.szakdoli.addmember.addmemberTopComponent")
@@ -87,9 +87,9 @@ public final class addmemberTopComponent extends TopComponent {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tfTSZ.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfTSZ.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         tfTSZ.setText(org.openide.util.NbBundle.getMessage(addmemberTopComponent.class, "addmemberTopComponent.tfTSZ.text")); // NOI18N
-        jPanel1.add(tfTSZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 290, 30));
+        jPanel1.add(tfTSZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 310, 30));
 
         tFName.setText(org.openide.util.NbBundle.getMessage(addmemberTopComponent.class, "addmemberTopComponent.tFName.text")); // NOI18N
         jPanel1.add(tFName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 330, -1));
@@ -130,9 +130,9 @@ public final class addmemberTopComponent extends TopComponent {
         });
         jPanel1.add(btnregister, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 520, 330, 40));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(addmemberTopComponent.class, "addmemberTopComponent.jLabel2.text")); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 40, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 30, 40));
 
         tfmail.setText(org.openide.util.NbBundle.getMessage(addmemberTopComponent.class, "addmemberTopComponent.tfmail.text")); // NOI18N
         jPanel1.add(tfmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 330, -1));
@@ -148,7 +148,7 @@ public final class addmemberTopComponent extends TopComponent {
     private void btnregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregisterActionPerformed
              try {
              sqlkonnekcio dbc = new sqlkonnekcio();
-            conn = dbc.connect(); //DriverManager.getConnection("jdbc:mysql://localhost:3306/szakdoli","root","Lampa123");
+            conn = dbc.connect(); 
              String sqlS ="INSERT INTO members(idmembers, nev, lakcim, igazolvany, telszam, szuldate,mail) VALUES (?,?,?,?,?,?,?) ";
              String sqlC ="SELECT max(idmembers) from members;";
             
@@ -162,15 +162,12 @@ public final class addmemberTopComponent extends TopComponent {
              String lakcim = tfLC.getText();
              String igszam = tfISZ.getText();
              SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-             
-             
-             int tagid = 0;
-             
-                     
+
+             int tagid = 0;        
              if(rsC.next()){
                 tagid =rsC.getInt(1);
              }
-             
+             //ellenőrzés
                  if ((telefon.equals("")||nev.equals("")||lakcim.equals("")||igszam.equals("")||jDateChooser1.getDate()==null)) {
                      JOptionPane.showMessageDialog(null, "Az űrlap egyik mezőjét üresen hagytad!");
                  }
@@ -179,7 +176,9 @@ public final class addmemberTopComponent extends TopComponent {
                      tfTSZ.setText("");
                  }else{
                    String Date = sdf.format(jDateChooser1.getDate());
-                      pst.setInt(1, tagid+1);
+                   
+                   //adatok átadása
+             pst.setInt(1, tagid+1);
              pst.setString(2, nev);
              pst.setString(3, lakcim);
              pst.setString(4, igszam);
@@ -187,48 +186,31 @@ public final class addmemberTopComponent extends TopComponent {
              pst.setString(5, telefon);
                  
              pst.setString(6, Date);
+             //email
                String to =tfmail.getText();
                      if (to.equals("")) {
-                         JOptionPane.showMessageDialog(null, "Nem adtál meg e-mail címet!");
+                         to="nincs";
                      }else{
-                
-                
-                
-                 try {
+
                      sendmail.sendmail(to);
-                 } catch (MessagingException ex) {
-                     Exceptions.printStackTrace(ex);
-                 }
+                     }
                  pst.setString(7, to);
-               pst.execute();
-                 }
-             
-              
+               pst.executeUpdate();
                }
-             
-             
-          
-  
-           
-            
-             
-            
-             
-          
+      
              pst.close();
              pstC.close();
              
              conn.close();
              
-             //emailküldés
-             
+         
 
-             
-             
         } catch (SQLException ex) {
                  if (ex.getErrorCode()==1062) {
                      JOptionPane.showMessageDialog(null, "EZ az igazolványszám már az adatbázisban van, kérlek ellenőrizd amit írtál!");
                  }
+            Exceptions.printStackTrace(ex);
+        } catch (MessagingException ex) {
             Exceptions.printStackTrace(ex);
         }
            

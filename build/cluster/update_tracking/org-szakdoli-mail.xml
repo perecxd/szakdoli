@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.szakdoli.mail">
-    <module_version install_time="1653411097910" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1653840563152" last="true" origin="installer" specification_version="1.0">
         <file crc="2905969648" name="config/Modules/org-szakdoli-mail.xml"/>
         <file crc="1470762890" name="modules/ext/activation-1.1.1.jar"/>
         <file crc="2205833458" name="modules/ext/javax.mail.jar"/>
         <file crc="261816941" name="modules/ext/mail.jar"/>
-        <file crc="2048924898" name="modules/org-szakdoli-mail.jar"/>
+        <file crc="1841364047" name="modules/org-szakdoli-mail.jar"/>
     </module_version>
 </module>

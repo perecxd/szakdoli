@@ -49,6 +49,12 @@ public final class menufeleTopComponent extends TopComponent {
         putClientProperty(TopComponent.PROP_MAXIMIZATION_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_UNDOCKING_DISABLED, Boolean.TRUE);
         jPanel1.setVisible(false);
+               WindowManager.getDefault().findTopComponent("addmemberTopComponent").close();
+       WindowManager.getDefault().findTopComponent("pdfolvasoTopComponent").close(); 
+       WindowManager.getDefault().findTopComponent("addbooksTopComponent").close(); 
+       WindowManager.getDefault().findTopComponent("borrowBooksTopComponent").close(); 
+       WindowManager.getDefault().findTopComponent("ManagerTopComponent").close(); 
+        
 
     }
 
@@ -241,9 +247,16 @@ public final class menufeleTopComponent extends TopComponent {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-      jPanel1.setVisible(false);
+     //kijelentkezés
+        jPanel1.setVisible(false);
       jPanel2.setVisible(true);
       JOptionPane.showMessageDialog(null, "Kijelentkeztél!");
+       WindowManager.getDefault().findTopComponent("addmemberTopComponent").close();
+       WindowManager.getDefault().findTopComponent("pdfolvasoTopComponent").close(); 
+       WindowManager.getDefault().findTopComponent("addbooksTopComponent").close(); 
+       WindowManager.getDefault().findTopComponent("borrowBooksTopComponent").close(); 
+         WindowManager.getDefault().findTopComponent("ManagerTopComponent").close(); 
+         
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -269,12 +282,20 @@ public final class menufeleTopComponent extends TopComponent {
     // End of variables declaration//GEN-END:variables
     @Override
     public void componentOpened() {
-        // TODO add custom code on component opening
+       WindowManager.getDefault().findTopComponent("addmemberTopComponent").close();
+       WindowManager.getDefault().findTopComponent("pdfolvasoTopComponent").close(); 
+       WindowManager.getDefault().findTopComponent("addbooksTopComponent").close(); 
+       WindowManager.getDefault().findTopComponent("borrowBooksTopComponent").close(); 
+       WindowManager.getDefault().findTopComponent("ManagerTopComponent").close(); 
     }
 
     @Override
     public void componentClosed() {
-        // TODO add custom code on component closing
+              WindowManager.getDefault().findTopComponent("addmemberTopComponent").close();
+       WindowManager.getDefault().findTopComponent("pdfolvasoTopComponent").close(); 
+       WindowManager.getDefault().findTopComponent("addbooksTopComponent").close(); 
+       WindowManager.getDefault().findTopComponent("borrowBooksTopComponent").close(); 
+       WindowManager.getDefault().findTopComponent("ManagerTopComponent").close(); 
     }
 
     void writeProperties(java.util.Properties p) {

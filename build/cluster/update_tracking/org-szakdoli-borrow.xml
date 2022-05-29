@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.szakdoli.borrow">
-    <module_version install_time="1653411098940" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1653840564075" last="true" origin="installer" specification_version="1.0">
         <file crc="4171680711" name="config/Modules/org-szakdoli-borrow.xml"/>
         <file crc="4292147143" name="modules/ext/AbsoluteLayout.jar"/>
         <file crc="1470762890" name="modules/ext/activation-1.1.1.jar"/>
         <file crc="2205833458" name="modules/ext/javax.mail.jar"/>
         <file crc="419013816" name="modules/ext/mysql-connector-java-8.0.27.jar"/>
-        <file crc="1376360918" name="modules/org-szakdoli-borrow.jar"/>
+        <file crc="896267935" name="modules/ext/sqlite-jdbc-3.36.0.3.jar"/>
+        <file crc="39792092" name="modules/org-szakdoli-borrow.jar"/>
     </module_version>
 </module>

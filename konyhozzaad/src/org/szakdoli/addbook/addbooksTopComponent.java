@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
@@ -29,7 +30,7 @@ import org.szakdoli.konnekcio.sqlkonnekcio;
 @TopComponent.Description(
         preferredID = "addbooksTopComponent",
         iconBase = "org/szakdoli/addbook/bookicon.png",
-        persistenceType = TopComponent.PERSISTENCE_ALWAYS
+        persistenceType = TopComponent.PERSISTENCE_NEVER
 )
 @TopComponent.Registration(mode = "editor", openAtStartup = false)
 @ActionID(category = "Window", id = "org.szakdoli.addbook.addbooksTopComponent")
@@ -161,9 +162,7 @@ Connection conn = null;
              ResultSet rsC = pstC.executeQuery();
              pstcim.setString(1, tFCim.getText());
              ResultSet rscim = pstcim.executeQuery();
-            
-             
-             
+
              int konyvid = 0;
              int cimid =0;
                      
@@ -182,21 +181,12 @@ Connection conn = null;
              pst.setString(4, tfKiado.getText());
              pst.setInt(5, Integer.valueOf(tfEv.getText()));
              pst.setString(6, tfLink.getText());
-               pst.execute();
+               pst.executeUpdate();
             }else if(cimid>0){
                 pstU.setInt(1, rscim.getInt(1));
-                    pstU.execute();
+                    pstU.executeUpdate();
             }
             
-             
-             
-          
-  
-           
-            
-             
-            
-             
              pstcim.close();
              pstU.close();
              pst.close();
@@ -211,6 +201,8 @@ Connection conn = null;
 
     private void btnFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFileActionPerformed
       JFileChooser fileChooser = new JFileChooser();
+                    FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF fájlok", "pdf");
+              fileChooser.setFileFilter(filter);
       int response = fileChooser.showOpenDialog(null);
      
         if (response == JFileChooser.APPROVE_OPTION) {

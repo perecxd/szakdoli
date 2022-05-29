@@ -51,7 +51,7 @@ public class sendmail {
         JOptionPane.showMessageDialog(null, "Sikeres regisztráció!");
     }
     
-   public static Message prepareMessage(Session ses, String myEmail, String hova){
+   private static Message prepareMessage(Session ses, String myEmail, String hova){
         try{
             Message msg = new MimeMessage(ses);
             msg.setFrom(new InternetAddress(myEmail));
@@ -59,12 +59,7 @@ public class sendmail {
             msg.setSubject("Regisztráció");
             msg.setText("Tisztelt Felhasználó!\n Köszönjük, hogy a mi könyvtárunkat választotta. \n További kérdéseit kérjük erre az emailcímre írányítsa. \n Üdvözlettel,\n HK TesztKönyvtár.");
             return msg;
-            
-            
-                    
-                    
-          }catch(MessagingException e){
-            
+          }catch(MessagingException e){ 
         }
         return null;
     }
@@ -96,7 +91,7 @@ public static void mailborrowed(String hova,String user,String könyv) throws Me
         JOptionPane.showMessageDialog(null, "Sikeres kölcsönzés!");
 }
 
-public static Message prepareMessageB(Session ses, String myEmail, String hova,String user,String könyv){
+private static Message prepareMessageB(Session ses, String myEmail, String hova,String user,String könyv){
         try{
             Message msg = new MimeMessage(ses);
             msg.setFrom(new InternetAddress(myEmail));
@@ -109,7 +104,8 @@ public static Message prepareMessageB(Session ses, String myEmail, String hova,S
             Date visszahozni = c.getTime();
             msg.setRecipient(Message.RecipientType.TO, new InternetAddress(hova));
             msg.setSubject("Kölcsönzés");
-            msg.setText("Tisztelt "+user+" !\n Köszönjük, hogy a mi könyvtárunkat választotta. \n "
+            msg.setText("Tisztelt "+user+"! \n"
+                    + " Köszönjük, hogy a mi könyvtárunkat választotta. \n "
                     + "Sikeresen kikölcsönözte a következő könyvet:"+könyv+" \n "
                             + "Kérjük, a mai dátumtól ("+formatter.format(date)+") számítva 30 napon belül hozza vissza ("+formatter.format(visszahozni)+") a kikölcsönzött művet!\n"
                             + "Üdvözlettel,\n HK TesztKönyvtár.");
@@ -126,7 +122,7 @@ public static Message prepareMessageB(Session ses, String myEmail, String hova,S
         return null;
     }
 
-public static Message prepareMessageReturn(Session ses, String myEmail, String hova,String user,String könyv,String datum){
+private static Message prepareMessageReturn(Session ses, String myEmail, String hova,String user,String könyv,String datum){
         try{
             Message msg = new MimeMessage(ses);
             msg.setFrom(new InternetAddress(myEmail));

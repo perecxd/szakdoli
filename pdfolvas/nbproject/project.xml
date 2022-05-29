@@ -66,32 +66,20 @@
             </module-dependencies>
             <public-packages/>
             <class-path-extension>
-                <runtime-relative-path>ext/mysql-connector-java-8.0.27.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/mysql-connector-java-8.0.27.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/AbsoluteLayout.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/AbsoluteLayout.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/jai_imageio.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/jai_imageio.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/jbig2-imageio-3.0.0.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/jbig2-imageio-3.0.0.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/icepdf-core-6.2.2.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/icepdf-core-6.2.2.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/JavaApplication1.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/JavaApplication1.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/icepdf-viewer-6.2.2.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/icepdf-viewer-6.2.2.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/sqlite-jdbc-3.36.0.3.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/sqlite-jdbc-3.36.0.3.jar</binary-origin>
             </class-path-extension>
         </data>
     </configuration>

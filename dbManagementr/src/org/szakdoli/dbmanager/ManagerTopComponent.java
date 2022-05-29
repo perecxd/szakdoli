@@ -32,7 +32,7 @@ import org.szakdoli.mail.sendmail;
 @TopComponent.Description(
         preferredID = "ManagerTopComponent",
         //iconBase="SET/PATH/TO/ICON/HERE",
-        persistenceType = TopComponent.PERSISTENCE_ALWAYS
+        persistenceType = TopComponent.PERSISTENCE_NEVER
 )
 @TopComponent.Registration(mode = "editor", openAtStartup = false)
 @ActionID(category = "Window", id = "org.szakdoli.dbmanager.ManagerTopComponent")
@@ -58,9 +58,9 @@ public final class ManagerTopComponent extends TopComponent {
          model.setColumnIdentifiers(obj);
          model2.setColumnIdentifiers(obj2);
          model23.setColumnIdentifiers(obj3);
-        jTable1.setModel(model);
-        jTable4.setModel(model2);
-        jTable5.setModel(model23);
+        jtKonyv.setModel(model);
+        jtKolcson.setModel(model2);
+        jtTagok.setModel(model23);
 
         updateT();
         updateT2();
@@ -83,8 +83,8 @@ public final class ManagerTopComponent extends TopComponent {
            sqlkonnekcio dbc = new sqlkonnekcio();
             conn = dbc.connect(); //DriverManager.getConnection("jdbc:mysql://localhost:3306/szakdoli","root","Lampa123");
            
-          String sql ="SELECT idkonyvek, cim, szerzo, kiado, kiadaseve from konyvek";
-          String sql2 = "select konyvszam - isKolcsonozve from konyvek";
+          String sql ="SELECT idkonyvek, cim, szerzo, kiado, kiadaseve from konyvek order by cim ASC";
+          String sql2 = "select konyvszam - isKolcsonozve from konyvek order by cim ASC";
           PreparedStatement pst = conn.prepareStatement(sql);
           PreparedStatement pst2 = conn.prepareStatement(sql2);
                 ResultSet rs2= pst2.executeQuery();
@@ -217,7 +217,7 @@ public final class ManagerTopComponent extends TopComponent {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtKonyv = new javax.swing.JTable();
         btnDelete1 = new javax.swing.JButton();
         btnAdd1 = new javax.swing.JButton();
         btnMinus1 = new javax.swing.JButton();
@@ -226,14 +226,14 @@ public final class ManagerTopComponent extends TopComponent {
         jSpinner2 = new javax.swing.JSpinner();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
-        btnMinus2 = new javax.swing.JButton();
+        jtKolcson = new javax.swing.JTable();
+        btnDelete2 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnReminder = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
-        btnMinus3 = new javax.swing.JButton();
+        jtTagok = new javax.swing.JTable();
+        btnDelete3 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
@@ -242,7 +242,7 @@ public final class ManagerTopComponent extends TopComponent {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtKonyv.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -253,7 +253,7 @@ public final class ManagerTopComponent extends TopComponent {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtKonyv);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 320));
 
@@ -305,7 +305,7 @@ public final class ManagerTopComponent extends TopComponent {
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        jtKolcson.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -316,19 +316,19 @@ public final class ManagerTopComponent extends TopComponent {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane4.setViewportView(jTable4);
+        jScrollPane4.setViewportView(jtKolcson);
 
         jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 320));
 
-        btnMinus2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(btnMinus2, org.openide.util.NbBundle.getMessage(ManagerTopComponent.class, "ManagerTopComponent.btnMinus2.text")); // NOI18N
-        btnMinus2.setToolTipText(org.openide.util.NbBundle.getMessage(ManagerTopComponent.class, "ManagerTopComponent.btnMinus2.toolTipText")); // NOI18N
-        btnMinus2.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(btnDelete2, org.openide.util.NbBundle.getMessage(ManagerTopComponent.class, "ManagerTopComponent.btnDelete2.text")); // NOI18N
+        btnDelete2.setToolTipText(org.openide.util.NbBundle.getMessage(ManagerTopComponent.class, "ManagerTopComponent.btnDelete2.toolTipText")); // NOI18N
+        btnDelete2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMinus2ActionPerformed(evt);
+                btnDelete2ActionPerformed(evt);
             }
         });
-        jPanel2.add(btnMinus2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 100, 60));
+        jPanel2.add(btnDelete2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 100, 60));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/szakdoli/dbmanager/frissítl.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jButton2, org.openide.util.NbBundle.getMessage(ManagerTopComponent.class, "ManagerTopComponent.jButton2.text")); // NOI18N
@@ -353,7 +353,7 @@ public final class ManagerTopComponent extends TopComponent {
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        jtTagok.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -364,19 +364,19 @@ public final class ManagerTopComponent extends TopComponent {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane5.setViewportView(jTable5);
+        jScrollPane5.setViewportView(jtTagok);
 
         jPanel3.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 320));
 
-        btnMinus3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(btnMinus3, org.openide.util.NbBundle.getMessage(ManagerTopComponent.class, "ManagerTopComponent.btnMinus3.text")); // NOI18N
-        btnMinus3.setToolTipText(org.openide.util.NbBundle.getMessage(ManagerTopComponent.class, "ManagerTopComponent.btnMinus3.toolTipText")); // NOI18N
-        btnMinus3.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(btnDelete3, org.openide.util.NbBundle.getMessage(ManagerTopComponent.class, "ManagerTopComponent.btnDelete3.text")); // NOI18N
+        btnDelete3.setToolTipText(org.openide.util.NbBundle.getMessage(ManagerTopComponent.class, "ManagerTopComponent.btnDelete3.toolTipText")); // NOI18N
+        btnDelete3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMinus3ActionPerformed(evt);
+                btnDelete3ActionPerformed(evt);
             }
         });
-        jPanel3.add(btnMinus3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 100, 60));
+        jPanel3.add(btnDelete3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 100, 60));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/szakdoli/dbmanager/frissítl.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jButton3, org.openide.util.NbBundle.getMessage(ManagerTopComponent.class, "ManagerTopComponent.jButton3.text")); // NOI18N
@@ -425,8 +425,8 @@ public final class ManagerTopComponent extends TopComponent {
             
             PreparedStatement pst4 = conn.prepareStatement(sql4);
             PreparedStatement pstK = conn.prepareStatement(sqlK);
-            int row= jTable1.getSelectedRow();
-            konyvid = (int)jTable1.getModel().getValueAt(row, 0);
+            int row= jtKonyv.getSelectedRow();
+            konyvid = (int)jtKonyv.getModel().getValueAt(row, 0);
            
             pstK.setInt(1, konyvid);
             ResultSet rsk = pstK.executeQuery();
@@ -439,16 +439,13 @@ public final class ManagerTopComponent extends TopComponent {
              int vegsoertek = konyvszam-spinnerertek2;
              int elerheto = konyvszam-ksz;
              if(elerheto < spinnerertek2 ){
-                 JOptionPane.showMessageDialog(null, "Vannak még kikölcsönzött könyvek, nem tudod törölni");
-                
-             
-             
+                 JOptionPane.showMessageDialog(null, "Az elérhető könyvek száma ezzel 0 alá csökkenne!");
              }else{
                   
              
              pst4.setInt(1, vegsoertek);
                   pst4.setInt(2,konyvid);
-                   pst4.execute();
+                   pst4.executeUpdate();
              }
  
         
@@ -465,7 +462,7 @@ public final class ManagerTopComponent extends TopComponent {
         }
     }//GEN-LAST:event_btnMinus1ActionPerformed
 
-    private void btnMinus2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinus2ActionPerformed
+    private void btnDelete2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete2ActionPerformed
          try {
            /* Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/szakdoli","root","Lampa123");*/
@@ -481,9 +478,9 @@ public final class ManagerTopComponent extends TopComponent {
             PreparedStatement pst4 = conn.prepareStatement(sql4);
             PreparedStatement pstK = conn.prepareStatement(sqlK);
             
-            int row= jTable4.getSelectedRow();
-            String kCim = jTable4.getModel().getValueAt(row,1).toString() ;
-            kolcsonid = (int)jTable4.getModel().getValueAt(row, 0);
+            int row= jtKolcson.getSelectedRow();
+            String kCim = jtKolcson.getModel().getValueAt(row,1).toString() ;
+            kolcsonid = (int)jtKolcson.getModel().getValueAt(row, 0);
             pst.setInt(1, kolcsonid);
             pst3.setString(1, kCim);
             ResultSet rs3 = pst3.executeQuery();
@@ -505,8 +502,8 @@ public final class ManagerTopComponent extends TopComponent {
             pst4.setInt(1,kolcsonszam-1 );
             pst4.setInt(2,konyvid);
             
-            pst4.execute();
-            pst.execute();
+            pst4.executeUpdate();
+            pst.executeUpdate();
             
             
             
@@ -522,49 +519,37 @@ public final class ManagerTopComponent extends TopComponent {
             Exceptions.printStackTrace(ex);
         }
                                              
-    }//GEN-LAST:event_btnMinus2ActionPerformed
+    }//GEN-LAST:event_btnDelete2ActionPerformed
 
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
         try {
              sqlkonnekcio dbc = new sqlkonnekcio();
-            conn = dbc.connect(); //DriverManager.getConnection("jdbc:mysql://localhost:3306/szakdoli","root","Lampa123");
+            conn = dbc.connect(); 
             String sqlC = "UPDATE konyvek set konyvszam=? where idkonyvek=? ";
             String sqlS = "select konyvszam from konyvek where idkonyvek=?";
-            
-            String sqlK ="select isKolcsonozve from konyvek where idkonyvek=?";
-
-            int row = jTable1.getSelectedRow();
+            int row = jtKonyv.getSelectedRow();
             PreparedStatement pst = conn.prepareStatement(sqlS);
-            PreparedStatement pstS = conn.prepareStatement(sqlC);
-            PreparedStatement pstK = conn.prepareStatement(sqlK);
-            int  konyvid = (int)jTable1.getModel().getValueAt(row, 0);
-            pstS.setInt(2, konyvid);
-            pst.setInt(1,konyvid );
-            pstK.setInt(1, konyvid);
+            PreparedStatement pstC = conn.prepareStatement(sqlC);
+          
+            int  konyvid = (int)jtKonyv.getModel().getValueAt(row, 0);
+            pstC.setInt(2, konyvid);
+            pst.setInt(1,konyvid );      
 
             ResultSet rs = pst.executeQuery();
-            ResultSet rsK = pstK.executeQuery();
             int konyvszam = 0;
-            int kolcsons =0;
+            
             while (rs.next()) {
                 konyvszam =rs.getInt(1);
-            }
-            while (rsK.next()){
-                kolcsons = rsK.getInt(1);
-            }
+            }   
             int spinnerertek = (int)jSpinner1.getValue();
             int vegsoertek=(konyvszam+spinnerertek);
           
-                 pstS.setInt(1, vegsoertek);
-                 pstS.execute();
-            
-           
-
-            
-            pstS.close();
-            pstK.close();
+                 pstC.setInt(1, vegsoertek);
+                 pstC.executeUpdate();  
+            pstC.close();
+              pst.close();
             conn.close();
-            pst.close();
+          
                  updateT();
         updateT2();
         updateT3();
@@ -575,19 +560,20 @@ public final class ManagerTopComponent extends TopComponent {
 
     }//GEN-LAST:event_btnAdd1ActionPerformed
 
-    private void btnMinus3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinus3ActionPerformed
+    private void btnDelete3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete3ActionPerformed
        try {
             sqlkonnekcio dbc = new sqlkonnekcio();
-            conn = dbc.connect(); //DriverManager.getConnection("jdbc:mysql://localhost:3306/szakdoli","root","Lampa123");
+            conn = dbc.connect(); 
             String sqlD ="delete from members where idmembers = ?";
+             
 
             PreparedStatement pst = conn.prepareStatement(sqlD);
             
-            int row= jTable5.getSelectedRow();
+            int row= jtTagok.getSelectedRow();
           
-            int konyvid = (int)jTable5.getModel().getValueAt(row, 0);
+            int konyvid = (int)jtTagok.getModel().getValueAt(row, 0);
             pst.setInt(1, konyvid);
-            pst.execute();
+            pst.executeUpdate();
 
              pst.close();
             conn.close();
@@ -597,7 +583,7 @@ public final class ManagerTopComponent extends TopComponent {
         } catch (SQLException ex) {
             Exceptions.printStackTrace(ex);
         }
-    }//GEN-LAST:event_btnMinus3ActionPerformed
+    }//GEN-LAST:event_btnDelete3ActionPerformed
 
     private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
        try {
@@ -610,22 +596,22 @@ public final class ManagerTopComponent extends TopComponent {
             PreparedStatement pstS = conn.prepareStatement(sqlSzam);
            
             
-            int row= jTable1.getSelectedRow();
+            int row= jtKonyv.getSelectedRow();
           
-            int konyvid = (int)jTable1.getModel().getValueAt(row, 0);
+            int konyvid = (int)jtKonyv.getModel().getValueAt(row, 0);
             pst.setInt(1, konyvid);
              pstS.setInt(1,konyvid);
              ResultSet rs = pstS.executeQuery();
              while (rs.next()) {               
                  if (rs.getInt(1)!=0) {
-                      JOptionPane.showMessageDialog(null, "Vannak még kikölcsönzött könyvek, nem tudod törölni");
+                      JOptionPane.showMessageDialog(null, "Vannak még kikölcsönzött könyvek, nem tudod törölni!");
                  }else{
-                     pst.execute();
+                     pst.executeUpdate();
            }
                
            }
             
-
+             pstS.close();
              pst.close();
             conn.close();
                updateT();
@@ -643,36 +629,31 @@ public final class ManagerTopComponent extends TopComponent {
             sqlkonnekcio dbc = new sqlkonnekcio();
             conn = dbc.connect(); 
           String sql ="SELECT nev,vissza,email from kolcsonzes where idkolcsonzes =?" ;
-          String SQL2="select cim from konyvek inner join kolcsonzes on konyvek.idkonyvek=kolcsonzes.konyvid where idkolcsonzes=?;";
-        
           PreparedStatement pst = conn.prepareStatement(sql);
-          PreparedStatement pst2 = conn.prepareStatement(SQL2);
-                      int row= jTable4.getSelectedRow();
-            int kolcsid = (int)jTable4.getModel().getValueAt(row, 0);
-            String cim =jTable4.getModel().getValueAt(row, 1).toString();
+          
+                      int row= jtKolcson.getSelectedRow();
+            int kolcsid = (int)jtKolcson.getModel().getValueAt(row, 0);
+            String cim =jtKolcson.getModel().getValueAt(row, 1).toString();
                 pst.setInt(1, kolcsid);
-                pst2.setInt(1, kolcsid);
+               
                 ResultSet rs = pst.executeQuery();
-                ResultSet rs2 = pst2.executeQuery();
+   
               String nev="";
                String vissza="";
                 String hova ="";
-
-
-                while(rs.next()&& rs2.next()){
-                   
-                
+                while(rs.next()){
                   nev = rs.getString("nev");
                  vissza  = rs.getString("vissza");
                  hova = rs.getString("email");
-                    
-                    
-              
-                    
+
                 }
+                if (hova.equals("nincs")||hova.equals("")) {
+               JOptionPane.showMessageDialog(null, "Nincs e-mail címe a felhasználónak!");
+     }else{
                 sendmail.mailreminder(hova, nev, cim, vissza);
+                }
                 pst.close();
-                pst2.close();
+                
                 conn.close();
                 
         } catch (SQLException ex) {
@@ -680,18 +661,14 @@ public final class ManagerTopComponent extends TopComponent {
         } catch (MessagingException ex) {
             Exceptions.printStackTrace(ex);
         }
-   
-         
-         
-         
              }//GEN-LAST:event_btnReminderActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd1;
     private javax.swing.JButton btnDelete1;
+    private javax.swing.JButton btnDelete2;
+    private javax.swing.JButton btnDelete3;
     private javax.swing.JButton btnMinus1;
-    private javax.swing.JButton btnMinus2;
-    private javax.swing.JButton btnMinus3;
     private javax.swing.JButton btnReminder;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -706,9 +683,9 @@ public final class ManagerTopComponent extends TopComponent {
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
+    private javax.swing.JTable jtKolcson;
+    private javax.swing.JTable jtKonyv;
+    private javax.swing.JTable jtTagok;
     // End of variables declaration//GEN-END:variables
     @Override
     public void componentOpened() {
@@ -719,6 +696,8 @@ public final class ManagerTopComponent extends TopComponent {
     public void componentClosed() {
         // TODO add custom code on component closing
     }
+    
+    
 
     void writeProperties(java.util.Properties p) {
         // better to version settings since initial version as advocated at

@@ -78,16 +78,20 @@
                 <binary-origin>release/modules/ext/mail.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/mysql-connector-java-8.0.27.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/mysql-connector-java-8.0.27.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/AbsoluteLayout.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/AbsoluteLayout.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/jcalendar-1.4.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/jcalendar-1.4.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/activation-1.1.1.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/activation-1.1.1.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/sqlite-jdbc-3.36.0.3.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/sqlite-jdbc-3.36.0.3.jar</binary-origin>
             </class-path-extension>
         </data>
     </configuration>
