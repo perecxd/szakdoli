@@ -81,7 +81,7 @@ public final class ManagerTopComponent extends TopComponent {
         try {
           
            sqlkonnekcio dbc = new sqlkonnekcio();
-            conn = dbc.connect(); //DriverManager.getConnection("jdbc:mysql://localhost:3306/szakdoli","root","Lampa123");
+            conn = dbc.connect(); 
            
           String sql ="SELECT idkonyvek, cim, szerzo, kiado, kiadaseve from konyvek order by cim ASC";
           String sql2 = "select konyvszam - isKolcsonozve from konyvek order by cim ASC";
@@ -122,7 +122,7 @@ public final class ManagerTopComponent extends TopComponent {
          public void updateT2(){
         try {
             sqlkonnekcio dbc = new sqlkonnekcio();
-            conn = dbc.connect(); //DriverManager.getConnection("jdbc:mysql://localhost:3306/szakdoli","root","Lampa123");
+            conn = dbc.connect(); 
           String sql ="SELECT idkolcsonzes,nev,telszam,vissza from kolcsonzes";
           String SQL2="select cim from konyvek inner join kolcsonzes on konyvek.idkonyvek=kolcsonzes.konyvid;";
           PreparedStatement pst = conn.prepareStatement(sql);
@@ -166,7 +166,7 @@ public final class ManagerTopComponent extends TopComponent {
           public void updateT3(){
         try {
              sqlkonnekcio dbc = new sqlkonnekcio();
-            conn = dbc.connect(); //DriverManager.getConnection("jdbc:mysql://localhost:3306/szakdoli","root","Lampa123");
+            conn = dbc.connect(); 
           String sql ="SELECT idmembers, nev, lakcim, igazolvany, telszam, szuldate,mail from members";
          
           PreparedStatement pst = conn.prepareStatement(sql);

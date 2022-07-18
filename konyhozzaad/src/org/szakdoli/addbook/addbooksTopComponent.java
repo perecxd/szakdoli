@@ -182,6 +182,7 @@ Connection conn = null;
              pst.setInt(5, Integer.valueOf(tfEv.getText()));
              pst.setString(6, tfLink.getText());
                pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Sikeresen hozzáadtad a könyvet!");
             }else if(cimid>0){
                 pstU.setInt(1, rscim.getInt(1));
                     pstU.executeUpdate();

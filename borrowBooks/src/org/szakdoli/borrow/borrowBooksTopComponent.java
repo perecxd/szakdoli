@@ -258,7 +258,9 @@ try{
             Date visszahoz = c.getTime();
             formatter.format(visszahoz);
             
-            
+            if (jcSelected.equals("<Válassz ki egy tagot>")) {
+                JOptionPane.showMessageDialog(null, "Nem választottál ki tagot!");
+    }else{
             
             pst.setInt(1,kolcsonid+1 );
             pst.setInt(2,konyvid );
@@ -275,6 +277,7 @@ try{
                 JOptionPane.showMessageDialog(null, "Sikeres kölcsönzés, értesítő e-mailt nem tudtunk küldeni! ");
     }else{
             sendmail.mailborrowed(hova, nev, konyv);
+            }
             }
             pstM.close();
              pst.close();

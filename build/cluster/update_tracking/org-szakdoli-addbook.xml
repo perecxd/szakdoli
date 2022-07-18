@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.szakdoli.addbook">
-    <module_version install_time="1653840562946" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1656272714289" last="true" origin="installer" specification_version="1.0">
         <file crc="2512271639" name="config/Modules/org-szakdoli-addbook.xml"/>
         <file crc="4292147143" name="modules/ext/AbsoluteLayout.jar"/>
         <file crc="419013816" name="modules/ext/mysql-connector-java-8.0.27.jar"/>
         <file crc="896267935" name="modules/ext/sqlite-jdbc-3.36.0.3.jar"/>
-        <file crc="1248934054" name="modules/org-szakdoli-addbook.jar"/>
+        <file crc="291528297" name="modules/org-szakdoli-addbook.jar"/>
     </module_version>
 </module>

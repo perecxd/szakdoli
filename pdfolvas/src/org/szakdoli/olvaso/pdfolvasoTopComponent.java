@@ -101,7 +101,6 @@ public final class pdfolvasoTopComponent extends TopComponent {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         openoutside = new javax.swing.JButton();
         openinapp = new javax.swing.JButton();
@@ -116,10 +115,7 @@ public final class pdfolvasoTopComponent extends TopComponent {
 
         setBackground(new java.awt.Color(204, 255, 204));
         setMaximumSize(new java.awt.Dimension(1024, 768));
-        setLayout(new java.awt.BorderLayout());
-
-        jPanel3.setName(""); // NOI18N
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(new java.awt.GridLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -130,7 +126,7 @@ public final class pdfolvasoTopComponent extends TopComponent {
                 openoutsideActionPerformed(evt);
             }
         });
-        jPanel1.add(openoutside, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 720, 330, 40));
+        jPanel1.add(openoutside, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, 330, 40));
 
         openinapp.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(openinapp, org.openide.util.NbBundle.getMessage(pdfolvasoTopComponent.class, "pdfolvasoTopComponent.openinapp.text")); // NOI18N
@@ -139,7 +135,7 @@ public final class pdfolvasoTopComponent extends TopComponent {
                 openinappActionPerformed(evt);
             }
         });
-        jPanel1.add(openinapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 720, 300, 40));
+        jPanel1.add(openinapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 490, 300, 40));
 
         updatebtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\HOME\\Documents\\NetBeansProjects\\szakdoga1\\frissítl.png")); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(updatebtn, org.openide.util.NbBundle.getMessage(pdfolvasoTopComponent.class, "pdfolvasoTopComponent.updatebtn.text")); // NOI18N
@@ -148,7 +144,9 @@ public final class pdfolvasoTopComponent extends TopComponent {
                 updatebtnActionPerformed(evt);
             }
         });
-        jPanel1.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 70, -1, -1));
+        jPanel1.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 70, -1, -1));
+
+        jScrollPane2.setMaximumSize(new java.awt.Dimension(600, 600));
 
         jTable1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 255, 51)));
         jTable1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
@@ -163,6 +161,7 @@ public final class pdfolvasoTopComponent extends TopComponent {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
             }
         ));
+        jTable1.setMaximumSize(new java.awt.Dimension(500, 160));
         jTable1.setRowHeight(40);
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jTable1);
@@ -174,7 +173,7 @@ public final class pdfolvasoTopComponent extends TopComponent {
             jTable1.getColumnModel().getColumn(4).setHeaderValue(org.openide.util.NbBundle.getMessage(pdfolvasoTopComponent.class, "pdfolvasoTopComponent.jTable1.columnModel.title4")); // NOI18N
         }
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 940, 640));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 850, 380));
 
         org.openide.awt.Mnemonics.setLocalizedText(opennotinapp, org.openide.util.NbBundle.getMessage(pdfolvasoTopComponent.class, "pdfolvasoTopComponent.opennotinapp.text")); // NOI18N
         opennotinapp.setToolTipText(org.openide.util.NbBundle.getMessage(pdfolvasoTopComponent.class, "pdfolvasoTopComponent.opennotinapp.toolTipText")); // NOI18N
@@ -192,10 +191,10 @@ public final class pdfolvasoTopComponent extends TopComponent {
                 btnopenfromtextActionPerformed(evt);
             }
         });
-        jPanel1.add(btnopenfromtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 40, 240, 20));
+        jPanel1.add(btnopenfromtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 240, 20));
 
         txtFilePath.setText(org.openide.util.NbBundle.getMessage(pdfolvasoTopComponent.class, "pdfolvasoTopComponent.txtFilePath.text")); // NOI18N
-        jPanel1.add(txtFilePath, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 840, -1));
+        jPanel1.add(txtFilePath, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 820, -1));
 
         org.openide.awt.Mnemonics.setLocalizedText(btnFileC, org.openide.util.NbBundle.getMessage(pdfolvasoTopComponent.class, "pdfolvasoTopComponent.btnFileC.text")); // NOI18N
         btnFileC.addActionListener(new java.awt.event.ActionListener() {
@@ -203,7 +202,7 @@ public final class pdfolvasoTopComponent extends TopComponent {
                 btnFileCActionPerformed(evt);
             }
         });
-        jPanel1.add(btnFileC, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 10, 30, 20));
+        jPanel1.add(btnFileC, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 10, 30, 20));
 
         org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(pdfolvasoTopComponent.class, "pdfolvasoTopComponent.jButton1.text")); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -211,12 +210,150 @@ public final class pdfolvasoTopComponent extends TopComponent {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 340, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 220, -1, -1));
 
-        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 1200, 780));
-
-        add(jPanel3, java.awt.BorderLayout.CENTER);
+        add(jPanel1);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+            try {
+                Desktop.getDesktop().browse(new URI("https://hu1lib.org/s/?languages%5B%5D=english&extensions%5B%5D=pdf"));
+            } catch (URISyntaxException ex) {
+                Exceptions.printStackTrace(ex);
+            } catch (IOException ex) {
+                Exceptions.printStackTrace(ex);
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnFileCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFileCActionPerformed
+
+        JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF fájlok", "pdf");
+        fileChooser.setFileFilter(filter);
+        int response = fileChooser.showOpenDialog(null);
+
+        if (response == JFileChooser.APPROVE_OPTION) {
+            String File = fileChooser.getSelectedFile().getAbsolutePath().replace('\\','/');
+            txtFilePath.setText(File);
+        }
+    }//GEN-LAST:event_btnFileCActionPerformed
+
+    private void btnopenfromtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnopenfromtextActionPerformed
+        String ut = txtFilePath.getText();
+        readerwindow();
+        openpdf(ut);
+        txtFilePath.setText("");
+    }//GEN-LAST:event_btnopenfromtextActionPerformed
+
+    private void opennotinappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opennotinappActionPerformed
+        String ut = txtFilePath.getText();
+
+        try {
+            if (ut.contains("https")) {
+                URL url = new URL(ut);
+                Runtime.getRuntime().exec("rundll32 url.dll, FileProtocolHandler "+ url );
+            }else if (ut.contains("Users/")) {
+                Runtime.getRuntime().exec("rundll32 url.dll, FileProtocolHandler "+ ut );
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "check file details");
+        }
+    }//GEN-LAST:event_opennotinappActionPerformed
+
+    private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
+        updateT();
+    }//GEN-LAST:event_updatebtnActionPerformed
+
+    private void openinappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openinappActionPerformed
+
+        try {
+            sqlkonnekcio dbc = new sqlkonnekcio();
+            conn = dbc.connect();
+            String sqlID = "Select idkonyvek from konyvek where cim =?";
+            String sqlS1="SELECT pdflink FROM konyvek WHERE idkonyvek = ? ";
+            PreparedStatement pst = conn.prepareStatement(sqlS1);
+            PreparedStatement pstid = conn.prepareStatement(sqlID);
+
+            int row = jTable1.getSelectedRow();
+            String kivalS = jTable1.getModel().getValueAt(row, 0).toString();
+            pstid.setString(1, kivalS);
+            ResultSet rsid = pstid.executeQuery();
+            int kival =0;
+            if (rsid.next()) {
+                kival= rsid.getInt(1);
+            }
+
+            pst.setInt(1,kival);
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next()){
+
+                String ut = rs.getString("pdflink");
+
+                readerwindow();
+                openpdf(ut);
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Valami hiba történt!");
+            }
+            pst.close();
+            pstid.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Exceptions.printStackTrace(ex);
+        }
+
+    }//GEN-LAST:event_openinappActionPerformed
+
+    private void openoutsideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openoutsideActionPerformed
+        try {
+            sqlkonnekcio dbc = new sqlkonnekcio();
+            conn = dbc.connect();
+
+            String sqlID = "Select idkonyvek from konyvek where cim =?";
+            String sqlS1="SELECT pdflink FROM konyvek WHERE idkonyvek = ? ";
+            PreparedStatement pst = conn.prepareStatement(sqlS1);
+            PreparedStatement pstid = conn.prepareStatement(sqlID);
+
+            int row = jTable1.getSelectedRow();
+            String kivalS = jTable1.getModel().getValueAt(row, 0).toString();
+            pstid.setString(1, kivalS);
+            ResultSet rsid = pstid.executeQuery();
+            int kival =0;
+            if (rsid.next()) {
+                kival= rsid.getInt(1);
+            }
+
+            pst.setInt(1,kival);
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next()){
+
+                String ut = rs.getString("pdflink");
+                if (ut.contains("https")) {
+                    URL url = new URL(ut);
+                    Runtime.getRuntime().exec("rundll32 url.dll, FileProtocolHandler "+ url );
+                }else {
+                    Runtime.getRuntime().exec("rundll32 url.dll, FileProtocolHandler "+ ut );
+                }
+
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Nem volt jó");
+            }
+
+            conn.close();
+        } catch (SQLException ex) {
+            Exceptions.printStackTrace(ex);
+        } catch (MalformedURLException ex) {
+            Exceptions.printStackTrace(ex);
+        } catch (IOException ex) {
+            Exceptions.printStackTrace(ex);
+        }
+    }//GEN-LAST:event_openoutsideActionPerformed
    
     //pdf-olvaso in app
     void openpdf(String file){
@@ -299,169 +436,11 @@ public final class pdfolvasoTopComponent extends TopComponent {
 
    
    
-    private void openinappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openinappActionPerformed
-        
-     
-        try {
-            sqlkonnekcio dbc = new sqlkonnekcio();
-            conn = dbc.connect();
-            String sqlID = "Select idkonyvek from konyvek where cim =?";
-            String sqlS1="SELECT pdflink FROM konyvek WHERE idkonyvek = ? ";
-            PreparedStatement pst = conn.prepareStatement(sqlS1);
-            PreparedStatement pstid = conn.prepareStatement(sqlID);
-     
-            int row = jTable1.getSelectedRow();
-            String kivalS = jTable1.getModel().getValueAt(row, 0).toString();
-            pstid.setString(1, kivalS);
-            ResultSet rsid = pstid.executeQuery();
-            int kival =0;
-            if (rsid.next()) {
-                kival= rsid.getInt(1);
-            }
-            
-            pst.setInt(1,kival);
-            ResultSet rs = pst.executeQuery();
-            
-        
-           
-            if(rs.next()){
-               
-                String ut = rs.getString("pdflink");
-              
-                 readerwindow();
-                 openpdf(ut);
-            }
-            else{
-                JOptionPane.showMessageDialog(null,"Valami hiba történt!");
-            }
-             pst.close();
-             pstid.close();
-             conn.close();
-        } catch (SQLException ex) {
-            Exceptions.printStackTrace(ex);
-        }
-        
-     
-       
-    }//GEN-LAST:event_openinappActionPerformed
-
-    private void opennotinappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opennotinappActionPerformed
-          String ut = txtFilePath.getText();
-
-        try {
-            if (ut.contains("https")) {
-                 URL url = new URL(ut);
-            Runtime.getRuntime().exec("rundll32 url.dll, FileProtocolHandler "+ url );
-            }else if (ut.contains("Users/")) {
-                Runtime.getRuntime().exec("rundll32 url.dll, FileProtocolHandler "+ ut );
-            }
-           
-            
-                
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "check file details");
-            }
-    }//GEN-LAST:event_opennotinappActionPerformed
-
-    private void openoutsideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openoutsideActionPerformed
-          try {
-            sqlkonnekcio dbc = new sqlkonnekcio();
-            conn = dbc.connect();
-            
-           String sqlID = "Select idkonyvek from konyvek where cim =?";
-            String sqlS1="SELECT pdflink FROM konyvek WHERE idkonyvek = ? ";
-            PreparedStatement pst = conn.prepareStatement(sqlS1);
-            PreparedStatement pstid = conn.prepareStatement(sqlID);
-     
-            int row = jTable1.getSelectedRow();
-            String kivalS = jTable1.getModel().getValueAt(row, 0).toString();
-            pstid.setString(1, kivalS);
-            ResultSet rsid = pstid.executeQuery();
-            int kival =0;
-            if (rsid.next()) {
-                kival= rsid.getInt(1);
-            }
-            
-            pst.setInt(1,kival);
-            ResultSet rs = pst.executeQuery();
-            
-        
-           
-            if(rs.next()){
-               
-              
-                String ut = rs.getString("pdflink");
-                if (ut.contains("https")) {
-                     URL url = new URL(ut);
-            Runtime.getRuntime().exec("rundll32 url.dll, FileProtocolHandler "+ url );
-                }else {
-                    Runtime.getRuntime().exec("rundll32 url.dll, FileProtocolHandler "+ ut );
-                }
-                
-                 
-            }
-            else{
-                JOptionPane.showMessageDialog(null,"Nem volt jó");
-            }
-          
-            
-           
-           
-              
-             
-             conn.close();
-        } catch (SQLException ex) {
-            Exceptions.printStackTrace(ex);
-        } catch (MalformedURLException ex) {
-            Exceptions.printStackTrace(ex);
-        } catch (IOException ex) {
-            Exceptions.printStackTrace(ex);
-        }
-    }//GEN-LAST:event_openoutsideActionPerformed
-
-    private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
-        updateT();
-
-    }//GEN-LAST:event_updatebtnActionPerformed
-
-    private void btnFileCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFileCActionPerformed
-        
-              JFileChooser fileChooser = new JFileChooser();
-              FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF fájlok", "pdf");
-              fileChooser.setFileFilter(filter);
-      int response = fileChooser.showOpenDialog(null);
-     
-        if (response == JFileChooser.APPROVE_OPTION) {
-            String File = fileChooser.getSelectedFile().getAbsolutePath().replace('\\','/');
-            txtFilePath.setText(File);
-        }
-    }//GEN-LAST:event_btnFileCActionPerformed
-
-    private void btnopenfromtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnopenfromtextActionPerformed
-        String ut = txtFilePath.getText();
-        readerwindow();
-         openpdf(ut);  
-         txtFilePath.setText("");
-    }//GEN-LAST:event_btnopenfromtextActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-            try {
-                Desktop.getDesktop().browse(new URI("https://hu1lib.org/s/?languages%5B%5D=english&extensions%5B%5D=pdf"));
-            } catch (URISyntaxException ex) {
-                Exceptions.printStackTrace(ex);
-            } catch (IOException ex) {
-                Exceptions.printStackTrace(ex);
-            }
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFileC;
     private javax.swing.JButton btnopenfromtext;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton openinapp;

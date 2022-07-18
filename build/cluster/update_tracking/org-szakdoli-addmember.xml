@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.szakdoli.addmember">
-    <module_version install_time="1653840563440" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1656272714975" last="true" origin="installer" specification_version="1.0">
         <file crc="986334808" name="config/Modules/org-szakdoli-addmember.xml"/>
         <file crc="4292147143" name="modules/ext/AbsoluteLayout.jar"/>
         <file crc="1470762890" name="modules/ext/activation-1.1.1.jar"/>
@@ -7,6 +7,6 @@
         <file crc="261816941" name="modules/ext/mail.jar"/>
         <file crc="419013816" name="modules/ext/mysql-connector-java-8.0.27.jar"/>
         <file crc="896267935" name="modules/ext/sqlite-jdbc-3.36.0.3.jar"/>
-        <file crc="709956304" name="modules/org-szakdoli-addmember.jar"/>
+        <file crc="1301688184" name="modules/org-szakdoli-addmember.jar"/>
     </module_version>
 </module>

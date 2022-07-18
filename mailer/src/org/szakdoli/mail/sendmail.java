@@ -27,7 +27,7 @@ public class sendmail {
 
    public static void sendmail(String hova) throws MessagingException{
                      final String from ="hkszakdoli22@gmail.com";
-             final String pw = "Szakdoli2022";
+             final String pw = "kcfvksfncfrvfdse";
  
              
              Properties pros = new Properties();
@@ -67,7 +67,7 @@ public class sendmail {
 
 public static void mailborrowed(String hova,String user,String könyv) throws MessagingException{
      final String from ="hkszakdoli22@gmail.com";
-             final String pw = "Szakdoli2022";
+             final String pw = "kcfvksfncfrvfdse";
  
              
              Properties pros = new Properties();
@@ -149,7 +149,7 @@ private static Message prepareMessageReturn(Session ses, String myEmail, String 
 
 public static void mailreminder(String hova,String user,String könyv,String datum) throws MessagingException{
      final String from ="hkszakdoli22@gmail.com";
-             final String pw = "Szakdoli2022";
+             final String pw = "kcfvksfncfrvfdse";
  
              
              Properties pros = new Properties();
